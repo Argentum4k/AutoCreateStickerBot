@@ -4,3 +4,6 @@
 remove.bg api key.txt
 __pycache__/stroke.cpython-39.pyc
 rembg.htm
+__pycache__
+storage
+env
