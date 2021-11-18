@@ -60,7 +60,7 @@ def stroke(filename: Path, stroke_size=5, color=(255, 255, 255), threshold=0):
     if not outf.exists():
         outf.mkdir()
     result.save(outf/filename.name)
-    # return result
+    return outf/filename.name
 
 
 if __name__ == '__main__':

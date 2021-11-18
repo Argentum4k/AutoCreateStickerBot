@@ -53,7 +53,7 @@ async def type_test(message: types.Message):
     if not dest.exists():
         dest.mkdir()
     new_name = newfilename(dest)
-    raw = await message.photo[0].download(destination_file = new_name)
+    raw = await message.photo[-1].download(destination_file = new_name)
     # b = BytesIO()
     # b.write(raw.raw)
     # with open('testfile.jpg', 'wb') as f:
@@ -61,7 +61,7 @@ async def type_test(message: types.Message):
     ###
     ready = remove_background.complete_local(new_name)
 
-    await message.answer_photo(open(ready,'rb'), 'here you are')
+    await message.answer_document(open(ready,'rb'), 'here you are')
 
 # тест оболочка для всего
 @dp.message_handler(content_types=types.ContentTypes.all())   

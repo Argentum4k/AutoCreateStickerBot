@@ -73,7 +73,8 @@ def remove_bg_local(filename: Path, out_folder: Path = None, alpha=0, model='u2n
 
 def complete_local(filename: Path) -> Path:
     nobg = remove_bg_local(filename)
-    return cut_empty_parts_and_fit_to_512px(nobg)
+    strokd = stroke(nobg)
+    return cut_empty_parts_and_fit_to_512px(strokd)
     
 if __name__ == '__main__':
 
