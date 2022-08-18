@@ -10,3 +10,5 @@ https://mastergroosha.github.io/telegram-tutorial-2
 
 шаблон бота: 
 https://github.com/Tishka17/tgbot_template
+
+ноавя версия rembg предлагает упрощенный интерфейс
