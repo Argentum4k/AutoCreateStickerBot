@@ -13,3 +13,19 @@ https://github.com/Tishka17/tgbot_template
 
 ноавя версия rembg предлагает упрощенный интерфейс и другой набор параметров)
 linus
+
+git config --global user.email "torvalds@linux-foundation.org"
+git config --global user.name "Torvalds"
+git show|head -1; git log --author="Linus Torvalds" --format="%ae" | sort | uniq -c
+commit fec88ab0af9706b2201e5daf377c5031c62d11f7
+     32 torvalds@evo.osdl.org
+   1522 torvalds@g5.osdl.org
+  24203 torvalds@linux-foundation.org
+      7 torvalds@macmini.osdl.org
+      2 torvalds@merom.osdl.org
+      8 torvalds@osdl.org
+    166 torvalds@ppc970.osdl.org
+      4 torvalds@ppc970.osdl.org.(none)
+      1 torvalds@quad.osdl.org
+   1606 torvalds@woody.linux-foundation.org
+    174 torvalds@woody.osdl.org
