@@ -12,3 +12,4 @@ https://mastergroosha.github.io/telegram-tutorial-2
 https://github.com/Tishka17/tgbot_template
 
 ноавя версия rembg предлагает упрощенный интерфейс и другой набор параметров)
+linus
