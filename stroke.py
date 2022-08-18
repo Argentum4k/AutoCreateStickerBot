@@ -21,6 +21,7 @@ def cv2pil(cv_img):
 
 
 def stroke(filename: Path, stroke_size=5, color=(255, 255, 255), threshold=0):
+    print('in stroke: ', 'filename ',filename, 'stroke_size',stroke_size, 'color',color, 'threshold', threshold)
     img = np.array(Image.open(filename)) 
     if img.shape[2] != 4:
         print('не найден слой прозрачности, как рамку искать то')
@@ -64,6 +65,12 @@ def stroke(filename: Path, stroke_size=5, color=(255, 255, 255), threshold=0):
 
 
 if __name__ == '__main__':
-    out_folder_api = Path.cwd()/'images/output_api_1'
-    for img in out_folder_api.iterdir():
-        if img.is_file(): stroke(img, 5)
+    # out_folder_api = Path.cwd()/'images/output_api_1'
+    inp_file = input('Введите имя файла: ')
+    if inp_file[0] == inp_file[-1] == '"':
+        inp_file = inp_file[1:-1]
+    p = Path(inp_file)
+    if p.is_file():
+        print('результат: ', stroke(p, 5, threshold=3))
+    else:
+        print('не похоже на правильный путь к файлу: ', p.absolute())

@@ -64,16 +64,23 @@ def remove_bg_local(filename: Path, out_folder: Path = None, alpha=0, model='u2n
         out_folder = filename.parent / 'local'
     if not out_folder.exists():
         out_folder.mkdir()
-    f = np.fromfile(filename)
-    result = rem_bg(f, alpha_matting=alpha, model_name=model)
-    name = out_folder/(filename.stem + '.png')
-    img = Image.open(io.BytesIO(result)).convert("RGBA")
-    img.save(out_folder/name)
-    return out_folder/name
+    # в предыдущей версии работало так, надло было скачать модель
+    # f = np.fromfile(filename)
+    # # result = rem_bg(f, alpha_matting=alpha, model_name=model)
+    # result = rem_bg(f, alpha_matting=alpha)
+    out_name = out_folder/(filename.stem + '.png')
+    # img = Image.open(io.BytesIO(result)).convert("RGBA")
+    # img.save(out_folder/name)
+    with open(filename, 'rb') as i:
+        with open(out_name, 'wb') as o:
+            inp = i.read()
+            output = rem_bg(inp)
+            o.write(output)
+    return out_name
 
 def complete_local(filename: Path) -> Path:
     nobg = remove_bg_local(filename)
-    strokd = stroke(nobg)
+    strokd = stroke(nobg, threshold=3)  # трешхолд экспериментально на 1 файле
     return cut_empty_parts_and_fit_to_512px(strokd)
     
 if __name__ == '__main__':
